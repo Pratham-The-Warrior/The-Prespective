@@ -1,0 +1,313 @@
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      users: {
+        Row: {
+          id: string
+          username: string
+          email: string | null
+          avatar_url: string | null
+          bio: string | null
+          is_admin: boolean
+          is_moderator: boolean
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          username: string
+          email?: string | null
+          avatar_url?: string | null
+          bio?: string | null
+          is_admin?: boolean
+          is_moderator?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          username?: string
+          email?: string | null
+          avatar_url?: string | null
+          bio?: string | null
+          is_admin?: boolean
+          is_moderator?: boolean
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      articles: {
+        Row: {
+          id: string
+          title: string
+          description: string | null
+          content: string | null
+          source: string | null
+          published_at: string | null
+          url: string | null
+          image_url: string | null
+          category: string | null
+          like_count: number
+          comment_count: number
+          view_count: number
+          upvote_count: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          title: string
+          description?: string | null
+          content?: string | null
+          source?: string | null
+          published_at?: string | null
+          url?: string | null
+          image_url?: string | null
+          category?: string | null
+          like_count?: number
+          comment_count?: number
+          view_count?: number
+          upvote_count?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          description?: string | null
+          content?: string | null
+          source?: string | null
+          published_at?: string | null
+          url?: string | null
+          image_url?: string | null
+          category?: string | null
+          like_count?: number
+          comment_count?: number
+          view_count?: number
+          upvote_count?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      comments: {
+        Row: {
+          id: string
+          article_id: string
+          user_id: string
+          parent_id: string | null
+          content: string
+          content_html: string
+          status: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          article_id: string
+          user_id: string
+          parent_id?: string | null
+          content: string
+          content_html?: string
+          status?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          article_id?: string
+          user_id?: string
+          parent_id?: string | null
+          content?: string
+          content_html?: string
+          status?: string
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      comment_likes: {
+        Row: {
+          id: string
+          comment_id: string
+          user_id: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          comment_id: string
+          user_id: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          comment_id?: string
+          user_id?: string
+          created_at?: string
+        }
+      }
+      article_likes: {
+        Row: {
+          id: string
+          article_id: string
+          user_id: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          article_id: string
+          user_id: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          article_id?: string
+          user_id?: string
+          created_at?: string
+        }
+      }
+      article_votes: {
+        Row: {
+          id: string
+          article_id: string
+          user_id: string
+          value: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          article_id: string
+          user_id: string
+          value: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          article_id?: string
+          user_id?: string
+          value?: number
+          created_at?: string
+        }
+      }
+      comment_votes: {
+        Row: {
+          id: string
+          comment_id: string
+          user_id: string
+          value: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          comment_id: string
+          user_id: string
+          value: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          comment_id?: string
+          user_id?: string
+          value?: number
+          created_at?: string
+        }
+      }
+      notifications: {
+        Row: {
+          id: string
+          user_id: string
+          type: string
+          content: string
+          related_id: string
+          is_read: boolean
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          type: string
+          content: string
+          related_id: string
+          is_read?: boolean
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          type?: string
+          content?: string
+          related_id?: string
+          is_read?: boolean
+          created_at?: string
+        }
+      }
+      reported_content: {
+        Row: {
+          id: string
+          content_type: string
+          content_id: string
+          reporter_id: string
+          reason: string
+          status: string
+          resolved_by: string | null
+          created_at: string
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          content_type: string
+          content_id: string
+          reporter_id: string
+          reason: string
+          status?: string
+          resolved_by?: string | null
+          created_at?: string
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          content_type?: string
+          content_id?: string
+          reporter_id?: string
+          reason?: string
+          status?: string
+          resolved_by?: string | null
+          created_at?: string
+          updated_at?: string | null
+        }
+      }
+    }
+  }
+}
+
+// Types for our application
+export type User = Database["public"]["Tables"]["users"]["Row"]
+export type Article = Database["public"]["Tables"]["articles"]["Row"]
+export type Comment = Database["public"]["Tables"]["comments"]["Row"]
+export type CommentWithUser = Comment & { user: User }
+export type Notification = Database["public"]["Tables"]["notifications"]["Row"]
+export type ReportedContent = Database["public"]["Tables"]["reported_content"]["Row"]
+
+// Comment status types
+export enum CommentStatus {
+  ACTIVE = "active",
+  HIDDEN = "hidden",
+  DELETED = "deleted",
+  FLAGGED = "flagged",
+}
+
+// Notification types
+export enum NotificationType {
+  REPLY = "reply",
+  LIKE = "like",
+  UPVOTE = "upvote",
+  MENTION = "mention",
+  SYSTEM = "system",
+}
+
+// Report status types
+export enum ReportStatus {
+  PENDING = "pending",
+  RESOLVED = "resolved",
+  REJECTED = "rejected",
+}
