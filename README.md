@@ -47,14 +47,27 @@
 
 ## 🧱 Tech Stack
 
-| Layer        | Technology                            |
-|--------------|----------------------------------------|
-| **Frontend** | React.js, Tailwind CSS, Axios, React Router |
-| **Backend**  | Node.js, Express.js                   |
-| **Database** | MongoDB + Mongoose ORM                |
-| **Auth**     | JWT, Bcrypt                           |
-| **State**    | React Context or Redux (your choice)  |
-| **Deployment** | Vercel / Netlify (Client) + Render / Railway (Server) |
+## 🧱 Tech Stack
+
+| **Layer**             | **Technology**                                                                 |
+|-----------------------|---------------------------------------------------------------------------------|
+| **Frontend**          | TypeScript, React, Tailwind CSS, Vite                                           |
+| **Backend**           | Node.js, Express.js                                                             |
+| **Database**          | MongoDB with Mongoose ORM                                                       |
+| **Authentication**    | JWT (access/refresh tokens), Bcrypt, Role-based access control (RBAC)          |
+| **State Management**  | Redux Toolkit, React Query (for data fetching/caching)                          |
+| **Form Handling**     | React Hook Form + Zod/Yup (for validation)                                      |
+| **Routing (Client)**  | React Router                                                                    |
+| **API Testing / Docs**| Postman, Swagger (OpenAPI)                                                      |
+| **Testing**           | Vitest, Jest, Supertest                                                         |
+| **Linting / Formatting** | ESLint, Prettier                                                             |
+| **CI/CD**             | GitHub Actions, Husky (for pre-commit hooks)                                    |
+| **Deployment**        | Vercel     |
+| **Env Management**    | dotenv, cross-env                                                               |
+| **Version Control**   | Git + GitHub                                                                    |                                               |
+| **DevTools**          | React DevTools, Redux DevTools                                                  |
+| **Monitoring / Logging** | LogRocket, Sentry, Winston, Morgan                                           |
+
 
 ---
 
